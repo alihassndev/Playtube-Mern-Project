@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/alihassndev/Playtube-Mern-Project/issues"
   },
-  "homepage": "https://github.com/alihassndev/Playtube-Mern-Project#readme"
+  "homepage": "https://github.com/alihassndev/Playtube-Mern-Project#readme",
+  "devDependencies": {
+    "prettier": "^3.5.3"
+  }
 }
