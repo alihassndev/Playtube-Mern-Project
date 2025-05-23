@@ -1,10 +1,10 @@
 import dotenv from "dotenv";
 dotenv.config();
 
-import conenctDB from "./db/index.js";
+import connectDB from "./db/index.js";
 import { app } from "./app.js";
 
-conenctDB()
+connectDB()
   .then(() => {
     app.on("error", (error) => {
       console.error("Server Error: ", error);
