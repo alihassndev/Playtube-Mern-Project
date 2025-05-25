@@ -20,5 +20,11 @@ import userRouter from "./routes/user.routes.js";
 
 // routes declaration
 app.use("/api/v1/users", userRouter);
+app.use("/api/v1/video", videoRouter);
+app.use("/api/v1/likes", likesRouter);
+app.use("/api/v1/subscription", subscriptionRouter);
+app.use("/api/v1/tweets", tweetsRouter);
+app.use("/api/v1/playlist", playlistRouter);
+app.use("/api/v1/comment", commentRouter);
 
 export { app };
