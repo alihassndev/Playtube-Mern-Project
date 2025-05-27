@@ -123,7 +123,7 @@ const loginUser = asyncHandler(async (req, res) => {
 
   const isPasswordValid = await user.isPasswordCorrect(password);
 
-  if (isPasswordValid) {
+  if (!isPasswordValid) {
     throw new ApiError(401, "InValid user credentials");
   }
 
@@ -204,8 +204,8 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
 
     return res
       .status(200)
-      .cookies("AccessToken", accessToken)
-      .cookies("RefreshToken", newrefreshToken)
+      .cookies("AccessToken", accessToken, option)
+      .cookies("RefreshToken", newrefreshToken, option)
       .json(
         new ApiResponse(
           200,
@@ -238,7 +238,7 @@ const changeCurrentPassword = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, {}, "Password changed successfully"));
 });
 
-const getCurrentUSer = asyncHandler(async (req, res) => {
+const getCurrentUser = asyncHandler(async (req, res) => {
   return res
     .status(200)
     .json(new ApiResponse(200, req.user, "current user fetched successfully"));
@@ -529,7 +529,7 @@ export {
   loginUser,
   logoutUser,
   refreshAccessToken,
-  getCurrentUSer,
+  getCurrentUser,
   changeCurrentPassword,
   updateAccountDetails,
   updatedUserAvatar,
